@@ -1,9 +1,11 @@
 
 //import cytoscape from "./node_modules/cytoscape/dist/cytoscape.esm.min.js";
-var bgcolor=""
-var visitedcolor=""
-var varvisitingcolor=""
-var edgecolor=""
+var bgcolor="#fff"
+var unvisited="#456"
+var visitedcolor="#639"
+var varvisitingcolor="#808"
+var edgecolor="#fff"
+var arrowcolor="#123"
 var cy=null;
 var graph=[
   [1,2,3],[2],[1,3],[2],[0]
@@ -20,7 +22,7 @@ function getele(graph,n)
   {
     var src=i;
     graph[i].forEach(element => {
-      array.push({data:{ id:"a"+element+"a"+i,
+      array.push({data:{ id:EdgeId(i,element),
         source:i,
         target:element}});
       
@@ -43,7 +45,7 @@ function draw(graph)
       {
         selector: 'node',
         style: {
-          'background-color': '#ccc',
+          'background-color': unvisited,
           'label': 'data(id)'
         }
       },
@@ -51,29 +53,39 @@ function draw(graph)
       {
         selector: 'edge',
         style: {
-          'width': 3,
-          'line-color': '#ccc',
-          'target-arrow-color': '#ccc',
+          'width': 5,
+          'line-color': edgecolor,
+          'target-arrow-color': arrowcolor,
           'target-arrow-shape': 'triangle'
         }
       },
       {
         selector: '.visited',
         style: {
-          'background-color':'#639',
+          'background-color':visitedcolor,
           'label':'data(id)'
         }
 
       },
       {
         
-        selector: '.visited',
+        selector: '.visiting',
         style: {
-          'background-color':'#639',
+          'background-color':visitedcolor,
           'label':'data(id)'
         }
 
         
+      },
+      {
+        selector: '.visitededge',
+        style: {
+          'width':10,
+          'line-color':visitedcolor,
+          'target-arrow-color': arrowcolor,
+          'target-arrow-shape': 'triangle'
+        }
+
       }
     ],
 
@@ -84,12 +96,16 @@ function draw(graph)
   });
 
 }
+function EdgeId(a,b)
+{
+  return a.toString()+b.toString();
+}
 var u=null;
-window.main = function()
+function main()
 {
   
       draw(graph);
-      update();
+      u=setInterval(update,300);
      // draw(graph);
       
 }
@@ -97,11 +113,21 @@ window.main = function()
   //cy.add([  { group: 'nodes', data: { id: 'c' }, position: { x: 100, y: 100 }},{ group: 'edges', data: { id: 'e0', source: 'a', target: 'c' } }])
   //this.setInterval(addEdge,50);
 
-
+var nn=0;
 var prev=performance.now();
 function update()
 {
-  
-  var ele=cy.elements().getElementById("0").addClass('visited');
+  console.log(nn.toString());d
+  var ele=cy.elements().getElementById(nn.toString()).addClass('visited');
+  graph[nn].forEach(value=>
+    {
+      cy.elements().getElementById(EdgeId(nn,value)).addClass('visitededge');
+
+    })
+  nn++;
+  if(nn>n)
+  {
+    clearInterval(u);
+  }
  // window.requestAnimationFrame(update);
 }
