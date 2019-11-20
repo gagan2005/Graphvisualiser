@@ -1,28 +1,14 @@
 
-import cytoscape from "./node_modules/cytoscape/dist/cytoscape.esm.min.js";
+//import cytoscape from "./node_modules/cytoscape/dist/cytoscape.esm.min.js";
+var bgcolor=""
+var visitedcolor=""
+var varvisitingcolor=""
+var edgecolor=""
 var cy=null;
 var graph=[
   [1,2,3],[2],[1,3],[2],[0]
 ];
 var n=4;
-function node(id)
-{
-  
-    var data={id:id}
-  
-  this.data=data;
-}
-function edge(a,b)
-{
-
-  var  data=
-    {
-      id:toString(a)+toString(b),
-      source:a,
-      source:b
-    }
-    this.data=data;
-}
 function getele(graph,n)
 {
   var array=[];
@@ -45,10 +31,6 @@ function getele(graph,n)
  
 
 }
-var garray=[
-  {data:{id:1}},{data:{id:2}}
-];
-console.log(garray);
 function draw(graph)
 {
   cy = cytoscape({
@@ -78,10 +60,20 @@ function draw(graph)
       {
         selector: '.visited',
         style: {
-          'background-color':'#ccc',
+          'background-color':'#639',
           'label':'data(id)'
         }
 
+      },
+      {
+        
+        selector: '.visited',
+        style: {
+          'background-color':'#639',
+          'label':'data(id)'
+        }
+
+        
       }
     ],
 
@@ -98,7 +90,7 @@ window.main = function()
   
       draw(graph);
       update();
-      draw(graph);
+     // draw(graph);
       
 }
   //cy.add()
@@ -110,6 +102,6 @@ var prev=performance.now();
 function update()
 {
   
-  var ele=cy.elements().getElementById(0).addClass('visited');
+  var ele=cy.elements().getElementById("0").addClass('visited');
  // window.requestAnimationFrame(update);
 }
