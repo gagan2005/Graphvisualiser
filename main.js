@@ -61,7 +61,7 @@ function draw(graph)
       {
         selector: 'node',
         style: {
-          'background-color': '#666',
+          'background-color': '#ccc',
           'label': 'data(id)'
         }
       },
@@ -74,6 +74,14 @@ function draw(graph)
           'target-arrow-color': '#ccc',
           'target-arrow-shape': 'triangle'
         }
+      },
+      {
+        selector: '.visited',
+        style: {
+          'background-color':'#ccc',
+          'label':'data(id)'
+        }
+
       }
     ],
 
@@ -87,7 +95,11 @@ function draw(graph)
 var u=null;
 window.main = function()
 {
-update()
+  
+      draw(graph);
+      update();
+      draw(graph);
+      
 }
   //cy.add()
   //cy.add([  { group: 'nodes', data: { id: 'c' }, position: { x: 100, y: 100 }},{ group: 'edges', data: { id: 'e0', source: 'a', target: 'c' } }])
@@ -97,18 +109,7 @@ update()
 var prev=performance.now();
 function update()
 {
-  var time=performance.now()-prev;
   
-  if(time > 500)
-  {
-    console.log("me called");
-    n++;
-  cy=null;
-  graph.push([0,1]);
-  graph[0].push(n-1);
-  graph[1].push(n-1);
-  draw(graph);
-  prev=performance.now();
-  }
+  var ele=cy.elements().getElementById(0).addClass('visited');
  // window.requestAnimationFrame(update);
 }
