@@ -4,3 +4,9 @@
     border:2px solid brown;
     height: 100vh;
 }
+
+.main
+{
+    margin: auto;
+    height: 90vh;
+}
