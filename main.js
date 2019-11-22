@@ -7,10 +7,14 @@ var varvisitingcolor="#808"
 var edgecolor="#fff"
 var arrowcolor="#123"
 var cy=null;
-var graph=[
-  [1,2,3],[2],[1,3],[2],[0]
-];
-var n=4;
+var type="bfs"             //BFS/DFS/mst Default is bfs
+var visitedarray=[];
+var src="";
+
+/*
+var graph=[[1,2],[3,4],[5,6],[7],[],[],[],[]];
+*/
+var n=6;
 function getele(graph,n)
 {
   var array=[];
@@ -46,7 +50,9 @@ function draw(graph)
         selector: 'node',
         style: {
           'background-color': unvisited,
-          'label': 'data(id)'
+          'label': 'data(id)',
+          'transition-property':'background-color',
+          'transition-duration':'2s',
         }
       },
 
@@ -81,6 +87,8 @@ function draw(graph)
         selector: '.visitededge',
         style: {
           'width':10,
+          'transition-property':'line-color',
+          'transition-duration':'2s',
           'line-color':visitedcolor,
           'target-arrow-color': arrowcolor,
           'target-arrow-shape': 'triangle'
@@ -105,29 +113,7 @@ function main()
 {
   
       draw(graph);
-      u=setInterval(update,300);
      // draw(graph);
       
 }
-  //cy.add()
-  //cy.add([  { group: 'nodes', data: { id: 'c' }, position: { x: 100, y: 100 }},{ group: 'edges', data: { id: 'e0', source: 'a', target: 'c' } }])
-  //this.setInterval(addEdge,50);
-
-var nn=0;
-var prev=performance.now();
-function update()
-{
-  console.log(nn.toString());d
-  var ele=cy.elements().getElementById(nn.toString()).addClass('visited');
-  graph[nn].forEach(value=>
-    {
-      cy.elements().getElementById(EdgeId(nn,value)).addClass('visitededge');
-
-    })
-  nn++;
-  if(nn>n)
-  {
-    clearInterval(u);
-  }
- // window.requestAnimationFrame(update);
-}
+  
