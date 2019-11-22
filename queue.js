@@ -1,7 +1,7 @@
 function Queue(){
     var queue  = [];
     var offset = 0;
-    this.getLength = function(){
+    this.size = function(){
       return (queue.length - offset);
     }
   
