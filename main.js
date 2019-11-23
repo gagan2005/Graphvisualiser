@@ -11,18 +11,7 @@ var u = null;
 var type = "bfs" //BFS/DFS/mst Default is bfs
 var visitedarray = [];
 var srccolor = "#feb236"
-var src = "";
-
 var src = nodes[0];
-var edges = [
-    ["a", "c"],
-    ["a", "b"],
-    ["c", "d"],
-    ["a", "d"],
-    ["d", "b"],
-    ["e", "a"],
-    ["b", "e"]
-];
 var extraclasses = ["visitededge", "visited", "source"];
 
 
@@ -134,6 +123,8 @@ function draw() {
         }
 
     });
+
+    cy.elements().getElementById(src).addClass('source');
 
 }
 

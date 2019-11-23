@@ -36,7 +36,7 @@
                 <div class="row">
                     <div class="col s12">
                         Enter the number of nodes,Each node sperated by "," ,Ex - a,b,c,d
-                        <input type="text" class="nodesin">
+                        <input type="text" class="nodesin" id="nodenames">
                     </div>
                 </div>
                 Enter edges
@@ -51,7 +51,7 @@
                             <label>Vertex</label>
                         </div>
 
-                        <div class="col s1"> <input class="v1" type="text">
+                        <div class="col s1"> <input class="v2" type="text">
                             <label>Vertex</label>
                         </div>
                     </div>
@@ -60,10 +60,10 @@
                 <div class="row">
                     <div class="col s4"><i class="material-icons red addbtn blue-text" onclick="add()">add</i></div>
                 </div>
-                <a class="waves-effect waves-light btn-large">Generate Graph</a>
+                <a class="waves-effect waves-light btn-large" onclick='geninpgraph()'>Generate Graph</a>
                 <h4> OR </h4>
                 <br>
-                <a class="waves-effect waves-light btn-large">Generate a default graph</a>
+                <a class="waves-effect waves-light btn-large" onclick='gendefaultgraph()'>Generate a default graph</a>
             </div>
         </div>
     </div>

@@ -19,8 +19,30 @@ function gendefaultgraph() {
     document.getElementById('interface').style.display = "none";
     document.getElementById('main').style.display = "block";
     main();
+    M.toast({ html: '<span style="color:yellow">Click on a vertex to choose it as a start vertex</span>' })
+
 }
 
 function geninpgraph() {
+    nodes = document.getElementById('nodenames').value.split(",");
+    var edgelist = document.querySelectorAll('.edgee .v1');
+    var edgelist2 = document.querySelectorAll('.edgee .v2');
+    if (edgelist.length != edgelist2.length) {
+        alert("Wrong input");
+        return;
+    } else {
+        edges = [];
+        for (var i = 0; i < edgelist.length; i++) {
+            var p = [];
+            p[0] = edgelist[i].value;
+            p[1] = edgelist2[i].value;
+            edges.push(p);
+        }
+        document.getElementById('interface').style.display = "none";
+        document.getElementById('main').style.display = "block";
+        main();
+        M.toast({ html: '<span style="color:yellow">Click on a vertex to choose it as a start vertex</span>' })
+
+    }
 
 }
