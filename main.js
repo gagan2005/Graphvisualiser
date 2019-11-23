@@ -8,16 +8,20 @@ var edgecolor = "CFBEBC"
 var visitededgecolor = "#AE3623"
 var arrowcolor = "#123"
 var cy = null;
+var u=null;
 var type = "bfs"             //BFS/DFS/mst Default is bfs
 var visitedarray = [];
+var srccolor="yellow"
 var src = "";
 var nodes = ["a", "b", "c", "d", "e"];
+var src=nodes[0];
 var edges = [["a", "c"],
 ["a", "b"],
 ["c", "d"],
 ["a", "d"], ["d", "b"], ["e", "a"], ["b", "e"]
 ];
-var extraclasses=["visitededge","visited"];
+var extraclasses=["visitededge","visited","source"];
+
 
 /*
 var graph=[[1,2],[3,4],[5,6],[7],[],[],[],[]];
@@ -111,6 +115,14 @@ function draw() {
           'target-arrow-shape': 'triangle'
         }
 
+      },
+
+      {
+        selector:'.source',
+        style:
+        {
+          'background-color':srccolor
+        }
       }
     ],
 
@@ -157,6 +169,15 @@ function main() {
     button.addEventListener('click',handleclick.bind(null,t,t));
   }
   draw();
+
+  cy.on('tap','node',function(evt){
+    var node = evt.target;
+    reset();
+    node.addClass('source');
+    src=node.id();
+
+  }
+    );
   //startAnimation();
 }
 function handleclick(t)

@@ -1,6 +1,5 @@
 var gadjlist={};
 var animateseq=[];
-var src="a";
 var type="bfs";
 var isvisited={};
 var i=0;
@@ -28,7 +27,7 @@ function initisvisited()
             isvisited[i]=false;
         });
 }
-var u=null;
+//var u=null;
 function startAnimation()
 {
     gadjlist=genadjlist();
