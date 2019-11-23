@@ -2,20 +2,44 @@
 
 <head>
 
-    <script src='cytoscape/cytoscape.min.js'></script>
-    <script src="main.js"></script>
-    <script src='queue.js'></script>
-    <script src="animate.js"></script>
-    </script>
-    
-    <link href="main.css" rel="stylesheet">
+  <script src='cytoscape/cytoscape.min.js'></script>
+  <script src="main.js"></script>
+  <script src='queue.js'></script>
+  <script src="animate.js"></script>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
+  <link href="main.css" rel="stylesheet">
+  <!--Let browser know website is optimized for mobile-->
+  <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+ 
+
+  <link href="main.css" rel="stylesheet">
 
 </head>
 
 <body onLoad="main()">
-    <div class="surf" id="cvs">
-
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo center">GraphVisualiser</a>
     </div>
+    </nav>
+  <div class="surf" id="cvs">
+
+  </div>
+ 
+  <div class="selectt">
+  
+     <button class="btn-large blue typeb">BFS</button>
+     <button class="btn-large grey typeb">DFS</button>
+     <!--<button class="btn-large grey typeb">MST</button> !-->
+  </div>
+  <button class="btn-large green right startt" onclick="startAnimation()">Start animation</button>
+  <button class="restartt btn-large red right " onclick="reset()">Reset</button>
+  
 </body>
 
 </html>

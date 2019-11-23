@@ -1,17 +1,38 @@
 body
 {
     
-    font-size: 25px;
+    font-size: 40px;
 }
 .surf
 {
-    background-color:yellow;
-    border:2px solid brown;
-    height: 100vh;
+    
+    border-bottom: 2px solid black;
+    height: 80vh;
 }
-
 .main
 {
     margin: auto;
-    height: 90vh;
+    height: 70vh;
+}
+.selectt
+{
+    display: inline;
+   
+
+}
+span
+{
+    
+    font-size: 50px !important;
+}
+p{
+    display: inline;
+}
+.startt,.restartt
+{
+    margin: 10px;
+}
+
+{
+
 }

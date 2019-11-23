@@ -1,21 +1,24 @@
 
 //import cytoscape from "./node_modules/cytoscape/dist/cytoscape.esm.min.js";
-var bgcolor = "#fff"
-var unvisited = "#456"
-var visitedcolor = "#639"
+var bgcolor = "#f23"
+var unvisited = '#f23'
+var visitedcolor = "#07F21F"
 var varvisitingcolor = "#808"
-var edgecolor = "#fff"
+var edgecolor = "CFBEBC"
+var visitededgecolor = "#AE3623"
 var arrowcolor = "#123"
 var cy = null;
 var type = "bfs"             //BFS/DFS/mst Default is bfs
 var visitedarray = [];
 var src = "";
-var nodes = ["a", "b", "c", "d"];
-var edges = [
-  ["a", "b"],
-  ["c", "d"],
-  ["a", "d"]
+var nodes = ["a", "b", "c", "d", "e"];
+var edges = [["a", "c"],
+["a", "b"],
+["c", "d"],
+["a", "d"], ["d", "b"], ["e", "a"], ["b", "e"]
 ];
+var extraclasses=["visitededge","visited"];
+
 /*
 var graph=[[1,2],[3,4],[5,6],[7],[],[],[],[]];
 */
@@ -65,8 +68,8 @@ function draw() {
         style: {
           'background-color': unvisited,
           'label': 'data(id)',
-          'transition-property': 'background-color',
-          'transition-duration': '2s',
+          //'transition-property': 'background-color',
+          //'transition-duration': '2s',
         }
       },
 
@@ -100,10 +103,10 @@ function draw() {
       {
         selector: '.visitededge',
         style: {
-          'width': 10,
-          'transition-property': 'line-color',
-          'transition-duration': '2s',
-          'line-color': visitedcolor,
+          'width': 8,
+          //'transition-property': 'line-color',
+          //'transition-duration': '2s',
+          'line-color': visitededgecolor,
           'target-arrow-color': arrowcolor,
           'target-arrow-shape': 'triangle'
         }
@@ -112,20 +115,69 @@ function draw() {
     ],
 
     layout: {
-      name: 'breadthfirst'
+      name: 'random'
     }
 
   });
 
 }
 function EdgeId(a, b) {
-  return a.toString() + b.toString();
+  return a.toString() + "--" + b.toString();
 }
 var u = null;
 function main() {
 
-  draw();
+
   // draw(graph);
 
 }
 
+function reset() {
+  clearInterval(u); 
+  cy.elements().forEach(ele=>
+    {
+      extraclasses.forEach(e=>
+        {
+          ele.removeClass(e);
+        });
+    });
+  }
+    
+
+function main() {
+
+
+  var typebuttons = document.getElementsByClassName('typeb');
+  console.log(typebuttons);
+  for (var i = 0; i < typebuttons.length; i++) 
+  {
+    var cur=i;
+    var button = typebuttons[i];
+    var t = button.innerText;
+    button.addEventListener('click',handleclick.bind(null,t,t));
+  }
+  draw();
+  //startAnimation();
+}
+function handleclick(t)
+{
+  type=t;
+  console.log(t)
+  var typebuttons = document.getElementsByClassName('typeb');
+
+  for (var i = 0; i < typebuttons.length; i++) 
+  {
+    if(typebuttons[i].innerText==type)
+    {
+      typebuttons[i].classList.remove('grey');
+      typebuttons[i].classList.add('blue');
+    }
+    else
+    {
+      typebuttons[i].classList.remove('blue');
+      typebuttons[i].classList.add('grey');
+    }
+}
+reset();
+  
+}
