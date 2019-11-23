@@ -1,38 +1,41 @@
-body
-{
-    
-    font-size: 40px;
-}
-.surf
-{
-    
+body {}
+
+.surf {
     border-bottom: 2px solid black;
     height: 80vh;
 }
-.main
-{
-    margin: auto;
-    height: 70vh;
-}
-.selectt
-{
-    display: inline;
-   
 
+.main {
+    margin: auto;
 }
-span
-{
-    
-    font-size: 50px !important;
-}
-p{
+
+.selectt {
     display: inline;
 }
-.startt,.restartt
-{
+
+p {
+    display: inline;
+}
+
+.startt,
+.restartt {
     margin: 10px;
 }
 
-{
+.nodesin,
+.edgesin {
+    background-color: white !important;
+}
 
+input {
+    background-color: white !important;
+}
+
+.addbtn {
+    width: auto;
+    font-size: 25px;
+}
+
+.edgee {
+    font: 100;
 }

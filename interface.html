@@ -1,47 +1,65 @@
 <!DOCTYPE html>
-  <html>
-    <head>
-      <!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
-        <link href="main.css" rel="stylesheet">
-      <!--Let browser know website is optimized for mobile-->
-      <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
+<html>
 
-    <body>
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
+    <link href="main.css" rel="stylesheet">
+    <!--Let browser know website is optimized for mobile-->
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
 
-      <!--JavaScript at end of body for optimized loading-->
-      <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
-    </body>
-    <nav>
+<body>
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+</body>
+<nav>
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo center">GraphVisualiser</a>
+        <a href="#" class="brand-logo center">GraphVisualiser</a>
     </div>
-    <div class="row main valign-wrapper">
+</nav>
+<div class="row main valign-wrapper">
     <div class="col s3"></div>
     <div class="col s6">
-      <div class="card blue darken-1">
-        <div class="card-content red-text">
-            <!--Content to be added here-->
-            Enter the number of nodes followd by edges
-           <textarea>
-           </textarea>
-            Enter edges
-           <textarea class="edges">
-           </textarea>
-           <h4>OR
-           <br>
-           <br>
-            <a class="waves-effect waves-light btn-large">Generate a default graph</a>
+        <div class="card blue darken-1">
+            <div class="card-content white-text">
+                <!--Content to be added here-->
+                <div class="row">
+                    <div class="col s12">
+                        Enter the number of nodes,Each node sperated by "," ,Ex - a,b,c,d
+                        <input type="text" class="nodesin">
+                    </div>
+                </div>
+                <div class="row edgee">
+                    Enter edges
+                    <br>
+
+                    <div class="col s2">
+
+                        <input class="v1" type="text">
+                    </div>
+                    <div class="col s1">
+                        to
+                    </div>
+                    <div class="col s2"> <input class="v1" type="text"></div>
+                </div>
+                <div class="row">
+                    <i class="material-icons red addbtn blue-text">add</i>
+                </div>
+
+                <br>
+                <br>
+                <a class="waves-effect waves-light btn-large">Generate a default graph</a>
+            </div>
         </div>
-      </div>
     </div>
     <div class="col s3"></div>
-  </div>
-  </nav>
+</div>
+</nav>
 
 
-  </html>
+</html>
