@@ -12,7 +12,7 @@ var type = "bfs" //BFS/DFS/mst Default is bfs
 var visitedarray = [];
 var srccolor = "#feb236"
 var src = "";
-var nodes = ["a", "b", "c", "d", "e"];
+
 var src = nodes[0];
 var edges = [
     ["a", "c"],
@@ -142,12 +142,7 @@ function EdgeId(a, b) {
 }
 var u = null;
 
-function main() {
 
-
-    // draw(graph);
-
-}
 
 function reset() {
     clearInterval(u);

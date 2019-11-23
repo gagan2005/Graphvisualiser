@@ -1,45 +1,98 @@
+<!DOCTYPE html>
 <html>
 
 <head>
-
-  <script src='cytoscape/cytoscape.min.js'></script>
-  <script src="main.js"></script>
-  <script src='queue.js'></script>
-  <script src="animate.js"></script>
-
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!--Import materialize.css-->
-  <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
-  <link href="main.css" rel="stylesheet">
-  <!--Let browser know website is optimized for mobile-->
-  <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
- 
-
-  <link href="main.css" rel="stylesheet">
-
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
+    <link href="main.css" rel="stylesheet">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src='cytoscape/cytoscape.min.js'></script>
+    <script src="queue.js"></script>
+    <script src="interface.js"></script>
+    <script src="main.js"></script>
+    <script src="animate.js">
+    </script>
 </head>
 
-<body onLoad="main()">
-  <nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo center">GraphVisualiser</a>
-    </div>
-    </nav>
-  <div class="surf" id="cvs">
+<body>
 
-  </div>
- 
-  <div class="selectt">
-  
-     <button class="btn-large blue typeb">BFS</button>
-     <button class="btn-large grey typeb">DFS</button>
-     <!--<button class="btn-large grey typeb">MST</button> !-->
-  </div>
-  <button class="btn-large green right startt" onclick="startAnimation()">Start animation</button>
-  <button class="restartt btn-large red right " onclick="reset()">Reset</button>
-  
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 </body>
+<nav>
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo center">GraphVisualiser</a>
+    </div>
+</nav>
+<div class="row main valign-wrapper" id="interface">
+    <div class="col s3"></div>
+    <div class="col s6">
+        <div class="card blue darken-1">
+            <div class="card-content white-text">
+                <!--Content to be added here-->
+                <div class="row">
+                    <div class="col s12">
+                        Enter the number of nodes,Each node sperated by "," ,Ex - a,b,c,d
+                        <input type="text" class="nodesin">
+                    </div>
+                </div>
+                Enter edges
+                <div id="edgelist">
+                    <div class="row edgee">
+
+                        <br>
+
+                        <div class="col s1">
+
+                            <input class="v1" type="text">
+                            <label>Vertex</label>
+                        </div>
+
+                        <div class="col s1"> <input class="v1" type="text">
+                            <label>Vertex</label>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col s4"><i class="material-icons red addbtn blue-text" onclick="add()">add</i></div>
+                </div>
+                <a class="waves-effect waves-light btn-large">Generate Graph</a>
+                <h4> OR </h4>
+                <br>
+                <a class="waves-effect waves-light btn-large">Generate a default graph</a>
+            </div>
+        </div>
+    </div>
+    <div class="col s3"></div>
+</div>
+<div id="main" style="display: none;">
+    <div class="surf" id="cvs">
+
+    </div>
+
+    <div class="selectt">
+
+        <button class="btn-large blue typeb">BFS</button>
+        <button class="btn-large grey typeb">DFS</button>
+        <!--<button class="btn-large grey typeb">MST</button> !-->
+    </div>
+    <button class="btn-large green right startt" onclick="startAnimation()">Start animation</button>
+    <button class="restartt btn-large red right " onclick="reset()">Reset</button>
+
+
+
+
+
+
+
+
+
+
+</div>
+
 
 </html>

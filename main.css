@@ -1,7 +1,7 @@
 body {}
 
 .surf {
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid #feb236;
     height: 80vh;
 }
 
@@ -31,11 +31,22 @@ input {
     background-color: white !important;
 }
 
+.v1 {
+    padding: 0px !important;
+    margin: 0px !important;
+    height: 1.8rem !important;
+}
+
 .addbtn {
     width: auto;
     font-size: 25px;
 }
 
+label {
+    color: brown;
+    font-size: 80%;
+}
+
 .edgee {
-    font: 100;
+    margin-top: 1px !important;
 }
