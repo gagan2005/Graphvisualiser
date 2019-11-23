@@ -1,6 +1,6 @@
 var gadjlist = {};
 var animateseq = [];
-var type = "bfs";
+var type = "BFS";
 var isvisited = {};
 var i = 0;
 
