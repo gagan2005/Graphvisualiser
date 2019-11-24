@@ -13,7 +13,7 @@ var visitedarray = [];
 var srccolor = "#feb236"
 var src = nodes[0];
 var extraclasses = ["visitededge", "visited", "source"];
-
+var time = 800;
 
 /*
 var graph=[[1,2],[3,4],[5,6],[7],[],[],[],[]];
@@ -135,10 +135,11 @@ var u = null;
 
 
 
-function reset() {
+function reset(all = true) {
     clearInterval(u);
     cy.elements().forEach(ele => {
         extraclasses.forEach(e => {
+            if (e == "source" && all == false) return;
             ele.removeClass(e);
         });
     });
@@ -182,6 +183,6 @@ function handleclick(t) {
             typebuttons[i].classList.add('grey');
         }
     }
-    reset();
+    reset(false);
 
 }

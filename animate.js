@@ -26,6 +26,12 @@ function initisvisited() {
 }
 //var u=null;
 function startAnimation() {
+    if (u != null) {
+        reset(false);
+
+
+
+    }
     gadjlist = genadjlist();
     animateseq = [];
     initisvisited();
@@ -37,7 +43,7 @@ function startAnimation() {
     }
     i = 0;
     console.log(animateseq);
-    u = setInterval(performanimateseq, 800);
+    u = setInterval(performanimateseq, time);
 
 
 
