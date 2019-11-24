@@ -52,15 +52,17 @@ function geninpgraph() {
         document.getElementById('interface').style.display = "none";
         document.getElementById('main').style.display = "block";
         main();
-        M.toast({ html: '<span style="color:yellow">Click on a vertex to choose it as a start vertex</span>' })
+        M.toast({ html: '<h1 style="color:yellow">Click on a vertex to choose it as a start vertex<h1>' })
 
     }
 
 }
 
 function goback() {
-    cy.destroy();
-    reset();
+    if (cy != null) {
+        cy.destroy();
+        reset();
+    }
     nodes = defaultnodes;
     edges = defaultedges;
     document.getElementById('interface').style.display = "block";
