@@ -8,6 +8,16 @@ var edges = [
     ["e", "a"],
     ["b", "e"]
 ];
+var defaultnodes = ["a", "b", "c", "d", "e"];
+var defaultedges = [
+    ["a", "c"],
+    ["a", "b"],
+    ["c", "d"],
+    ["a", "d"],
+    ["d", "b"],
+    ["e", "a"],
+    ["b", "e"]
+];
 
 function add() {
     var parent = document.getElementById('edgelist');
@@ -16,6 +26,7 @@ function add() {
 }
 
 function gendefaultgraph() {
+
     document.getElementById('interface').style.display = "none";
     document.getElementById('main').style.display = "block";
     main();
@@ -45,4 +56,13 @@ function geninpgraph() {
 
     }
 
+}
+
+function goback() {
+    cy.destroy();
+    reset();
+    nodes = defaultnodes;
+    edges = defaultedges;
+    document.getElementById('interface').style.display = "block";
+    document.getElementById('main').style.display = "none";
 }
