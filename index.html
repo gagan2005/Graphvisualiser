@@ -40,6 +40,12 @@
                     </div>
                 </div>
                 <h5 class="black-text">Enter edges</h5>
+                <p>
+                    <label>
+                    <input type="checkbox" checked="checked" class="filled-in" onchange="weightchange()" />
+                        <span class="pink-text">Weighted Graph</span>
+                    </label>
+                </p>
                 <div id="edgelist">
 
 
@@ -57,7 +63,7 @@
                             <input class="v2" type="text">
                             <label class="white-text">Vertex</label>
                         </div>
-                        <div class="col s2 l1"> <input class="w" type="number">
+                        <div class="col s2 l1 ww"> <input class="w" type="number">
                             <label class="white-text">Weight</label>
                         </div>
                     </div>
@@ -84,6 +90,7 @@
 
         <button class="btn-large blue typeb">BFS</button>
         <button class="btn-large grey typeb">DFS</button>
+        <button class="btn-large grey typeb">MST</button>
         <!--<button class="btn-large grey typeb">MST</button> !-->
     </div>
     <button class="btn-large green right startt" onclick="startAnimation()">Start animation</button>

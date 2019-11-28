@@ -52,6 +52,9 @@ function geninpgraph() {
             console.log(weightlist[i].value);
             p[0] = edgelist[i].value;
             p[1] = edgelist2[i].value;
+            if (isweighted == true) {
+                p[2] = weightlist[i].value;
+            }
             edges.push(p);
         }
         document.getElementById('interface').style.display = "none";
@@ -72,4 +75,14 @@ function goback() {
     edges = defaultedges;
     document.getElementById('interface').style.display = "block";
     document.getElementById('main').style.display = "none";
+}
+
+function weightchange() {
+    isweighted = !isweighted;
+    var x = document.getElementsByClassName('ww');
+    for (var i = 0; i < x.length; i++) {
+        if (isweighted == true) {
+            x[i].style.display = "inline";
+        } else x[i].style.display = "none";
+    }
 }

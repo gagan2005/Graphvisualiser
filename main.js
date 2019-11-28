@@ -14,7 +14,7 @@ var srccolor = "#feb236"
 var src = nodes[0];
 var extraclasses = ["visitededge", "visited", "source"];
 var time = 800;
-var isweighted = false;
+var isweighted = true;
 /*
 var graph=[[1,2],[3,4],[5,6],[7],[],[],[],[]];
 */
