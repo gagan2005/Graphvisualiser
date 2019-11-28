@@ -10,13 +10,13 @@ var edges = [
 ];
 var defaultnodes = ["a", "b", "c", "d", "e"];
 var defaultedges = [
-    ["a", "c"],
-    ["a", "b"],
-    ["c", "d"],
-    ["a", "d"],
-    ["d", "b"],
-    ["e", "a"],
-    ["b", "e"]
+    ["a", "c", 12],
+    ["a", "b", 14],
+    ["c", "d", 8],
+    ["a", "d", 6],
+    ["d", "b", 3],
+    ["e", "a", 2],
+    ["b", "e", 16]
 ];
 
 function add() {
@@ -29,6 +29,9 @@ function gendefaultgraph() {
 
     document.getElementById('interface').style.display = "none";
     document.getElementById('main').style.display = "block";
+    nodes = defaultnodes;
+    edges = defaultedges;
+    isweighted = true;
     main();
     M.toast({ html: '<span style="color:yellow">Click on a vertex to choose it as a start vertex</span>' })
 

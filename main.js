@@ -14,7 +14,7 @@ var srccolor = "#feb236"
 var src = nodes[0];
 var extraclasses = ["visitededge", "visited", "source"];
 var time = 800;
-
+var isweighted = false;
 /*
 var graph=[[1,2],[3,4],[5,6],[7],[],[],[],[]];
 */
@@ -28,22 +28,41 @@ function getele() {
 
 
     edges.forEach(element => {
+        if (isweighted == false) {
+            array.push({
+                data: {
+                    id: EdgeId(element[0], element[1]),
+                    source: element[0],
+                    target: element[1]
+                }
+            });
 
-        array.push({
-            data: {
-                id: EdgeId(element[0], element[1]),
-                source: element[0],
-                target: element[1]
-            }
-        });
+            array.push({
+                data: {
+                    id: EdgeId(element[1], element[0]),
+                    source: element[1],
+                    target: element[0]
+                }
+            });
+        } else {
+            array.push({
+                data: {
+                    id: EdgeId(element[0], element[1]),
+                    source: element[0],
+                    target: element[1],
+                    weight: element[2]
+                }
+            });
 
-        array.push({
-            data: {
-                id: EdgeId(element[1], element[0]),
-                source: element[1],
-                target: element[0]
-            }
-        });
+            array.push({
+                data: {
+                    id: EdgeId(element[1], element[0]),
+                    source: element[1],
+                    target: element[0],
+                    weight: element[2]
+                }
+            });
+        }
 
     });
     console.log(array);
