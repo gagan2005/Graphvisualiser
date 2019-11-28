@@ -95,7 +95,8 @@ function draw() {
                     'width': 5,
                     'line-color': edgecolor,
                     'target-arrow-color': arrowcolor,
-                    'target-arrow-shape': 'triangle'
+                    'target-arrow-shape': 'triangle',
+                    'label': 'data(weight)'
                 }
             },
             {

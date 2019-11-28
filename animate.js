@@ -38,8 +38,10 @@ function startAnimation() {
     if (type == "BFS") {
         var q = new Queue();
         bfs(src, q);
-    } else {
+    } else if (type == "DFS") {
         dfs(src);
+    } else {
+        mst(src);
     }
     i = 0;
     console.log(animateseq);
@@ -94,21 +96,49 @@ function dfs(src) {
 
 function mst(src) {
 
+    if (isweighted == true) {
+        edges.sort((a, b) => {
+            if (a[2] < b[2]) return -1;
+            else if (b[2] > a[2]) return 1;
+            else return 0;
+        });
+    }
 
+    var set = new DSU(nodes);
+    edges.forEach(edge => {
+        var a = edge[0];
+        var b = edge[1];
+        if (set.findroot(a) != set.findroot(b)) //Checking for cycles
+        {
+            set.union(a, b);
+            animateseq.push(EdgeId(a, b));
+            animateseq.push(EdgeId(b, a)); //Push if no cycle
+        }
+
+    });
 }
 
 function performanimateseq() {
-    console.log("animation going on", animateseq.length, i);
     if (i >= animateseq.length) clearInterval(u);
+    if (type != "MST") {
+        console.log("animation going on", animateseq.length, i);
 
-    if (i % 3 == 0) {
-        cy.elements().getElementById(animateseq[i]).addClass('visited');
-        var s = new sound("sound12.mp3");
-        s.play()
-        i++;
+
+        if (i % 3 == 0) {
+            cy.elements().getElementById(animateseq[i]).addClass('visited');
+            var s = new sound("sound12.mp3");
+            s.play()
+            i++;
+        } else {
+            cy.elements().getElementById(animateseq[i]).addClass('visitededge');
+            cy.elements().getElementById(animateseq[i + 1]).addClass('visitededge');
+            i = i + 2;
+        }
     } else {
+
         cy.elements().getElementById(animateseq[i]).addClass('visitededge');
         cy.elements().getElementById(animateseq[i + 1]).addClass('visitededge');
+
         i = i + 2;
     }
 
