@@ -38,6 +38,7 @@ function geninpgraph() {
     nodes = document.getElementById('nodenames').value.split(",");
     var edgelist = document.querySelectorAll('.edgee .v1');
     var edgelist2 = document.querySelectorAll('.edgee .v2');
+    var weightlist = document.querySelectorAll('.edgee .w');
     if (edgelist.length != edgelist2.length) {
         alert("Wrong input");
         return;
@@ -45,6 +46,7 @@ function geninpgraph() {
         edges = [];
         for (var i = 0; i < edgelist.length; i++) {
             var p = [];
+            console.log(weightlist[i].value);
             p[0] = edgelist[i].value;
             p[1] = edgelist2[i].value;
             edges.push(p);
@@ -52,7 +54,7 @@ function geninpgraph() {
         document.getElementById('interface').style.display = "none";
         document.getElementById('main').style.display = "block";
         main();
-        M.toast({ html: '<h1 style="color:yellow">Click on a vertex to choose it as a start vertex<h1>' })
+        M.toast({ html: '<h3 style="color:yellow">Click on a vertex to choose it as a start vertex<h3>' })
 
     }
 
