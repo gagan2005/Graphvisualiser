@@ -52,6 +52,10 @@ function geninpgraph() {
             console.log(weightlist[i].value);
             p[0] = edgelist[i].value;
             p[1] = edgelist2[i].value;
+            if (!nodes.includes(p[0]) || !nodes.includes(p[1])) {
+                alert("Wrong input .Please try again");
+                return;
+            }
             if (isweighted == true) {
                 p[2] = weightlist[i].value;
             }
@@ -59,6 +63,7 @@ function geninpgraph() {
         }
         document.getElementById('interface').style.display = "none";
         document.getElementById('main').style.display = "block";
+
         main();
         M.toast({ html: '<h3 style="color:yellow">Click on a vertex to choose it as a start vertex<h3>' })
 
